@@ -1,11 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 body    {
     margin: 0;
-    background-color: rgb(52, 50, 54);
+    background-color: #0b0111;
+    font-family: 'Staatliches', cursive;
 }
 
+.logoGenius {
+    color: white;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+}
 .main-game  {
-    height: 100vh;
-    width: 100vw;
+    /* height: 100vh;
+    width: 100vw; */
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,30 +28,79 @@ body    {
     border: 1px solid #fff;
     background-color: #fff;
     border-radius: 100%;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
 }
 
 .green    {
     grid-area: verde;
-    background-color: #4CAF50;
+    background-color: #43B5A0;
     border-top-left-radius: 100%;
 }
 
 .red    {
     grid-area: vermelho;
-    background-color: #FF5252;
+    background-color: #FA448C;
     border-top-right-radius: 100%;
 }
 
 .yellow   {
     grid-area: amarelo;
-    background-color: #FFEB3B;
+    background-color: #FEC859;
     border-bottom-left-radius: 100%;
 }
 
 .blue   {
     grid-area: azul;
-    background-color: #03A9F4;
+    background-color: #491D88;
     border-bottom-right-radius: 100%;
+}
+
+.selected {
+    opacity:0.5;
+    box-shadow: 0 0 5px white,
+    0 0 25px white,
+    0 0 50px white,
+    0 0 100px white;
+}
+
+
+/* Meu Footer - Assinatura */
+footer {
+	margin-top: 25px;
+	position: relative;
+	text-align: center;
+    color: white;
+}
+a	{
+	color: #FA448C;
+}
+span {
+  position: relative;
+  display: inline-block;
+  color: var(--purple); 
+  animation: hearts 0.6s cubic-bezier(0.18, 0.89, 0.29, 1.05) infinite;
+}
+
+
+/* Small Screen - Heart */
+@-moz-keyframes hearts {
+  50% {
+    transform: scale(1.4);
+  }
+}
+@-webkit-keyframes hearts {
+  50% {
+    transform: scale(1.4);
+  }
+}
+@-o-keyframes hearts {
+  50% {
+    transform: scale(1.4);
+  }
+}
+@keyframes hearts {
+  50% {
+    transform: scale(1.4);
+  }
 }
