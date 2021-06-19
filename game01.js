@@ -46,7 +46,6 @@ let shuffleOrder = () => {
         //Acende a cor sorteada
         lightColor(elementColor, Number(i) + 1);
     }
-
 }
 
 //Acende a proxima cor
@@ -56,7 +55,7 @@ let lightColor = (element, number) => {
     // Ativa a cor pelo CSS
     setTimeout(() => {
         element.classList.add('selected');
-        soundsColors(color);
+        soundColorPlay(color);
     }, number - 250);
 
     // Desativa a cor
@@ -64,6 +63,7 @@ let lightColor = (element, number) => {
         element.classList.remove('selected');
     });
 }
+
 
 //Checa se os botoes clicados são os mesmos da ordem gerada no jogo
 let checkOrder = () => {
@@ -75,19 +75,21 @@ let checkOrder = () => {
         }
     }
     if(clickedOrder.length == order.length) {
-        alert(`Parabéns!🏆  A sua pontuação atual é :${score} e o seu level atual é : ${level}!\nClique em OK para ir para o proximo level! 👀`);
+        alert(`Pontuação: ${score}!\nVocê acertou!\n O seu level atual é de ${level}!\nClique em OK para iniciar um novo jogo`);
         nextLevel();
     }
 }
+
 
 //Função para o click do usuario
 let click = (color) => {
 
     clickedOrder[clickedOrder.length] = color;
     createColorElement(color).classList.add('selected');
-    soundsColors(color);
+    soundColorPlay(color);
 
     setTimeout(() => {
+
         createColorElement(color).classList.remove('selected');
         checkOrder();
 
@@ -97,42 +99,35 @@ let click = (color) => {
 //Função que retorna a cor
 let createColorElement = (color) => {
     if(color == 0) {
-        somDoGreen.play();
         return green;
 
     } else if(color == 1) {
-        somDoRed.play();
         return red;
 
     } else if (color == 2) {
-        somDoYellow.play();
         return yellow;
 
     } else if (color == 3) {
-        somDoBlue.play();
         return blue;
     }
 }
 
 //Função para proximo nivel do jogo
 let nextLevel = () => {
+    
     score++;
     level++;
-
-    //alert(`Parabéns!🏆  A sua pontuação atual é :${score} e o seu level atual é : ${level}!\nClique em OK para ir para o proximo level! 👀`);
     shuffleOrder();
 }
+
 
 //Função derrota
 let gameOver = () => {
     somGameover.play();
-    alert(`Oh não, você perdeu! 🥺\n A pontuação feita durante o jogo é: ${score} e você conseguiu avançar até o level ${level}!\n Clique em OK para jogar novamente! 👀`);
+    alert(`Pontuação: ${score}!\nVocê perdeu o jogo!\n O sue Level alcançado foi de ${level}!\nClique em OK para iniciar um novo jogo`);
     order = [];
     clickedOrder = [];
-    score = 0;
-    level = 0;
 
-    //window.location.reload(true);
     playGame();
 }
 
@@ -140,7 +135,6 @@ let gameOver = () => {
 let playGame = () => {
     alert('Bem vindo ao Genius! Iniciando novo jogo!');
     score = 0;
-    level = 0;
 
     nextLevel();
 }
@@ -151,36 +145,38 @@ red.onclick = () => click(1);
 yellow.onclick = () => click(2);
 blue.onclick = () => click(3);
 
-let soundsColors = (color) => {
+// som da cor
+let soundColorPlay = (color) => {
     if ((color == 0) || (color == 'green')) {
         somDoGreen.play();
-        if (somDoGreen.currentTime > 0.5) {
+        if (audio.currentTime > 0.5) {
             setTimeout(() => {
-                somDoGreen.pause();
+                audio.pause();
             }, 450);
         }
     } else if ((color == 1) || (color == 'red')) {
         somDoRed.play();
-        if (somDoRed.currentTime > 0.5) {
+        if (audio.currentTime > 0.5) {
             setTimeout(() => {
-                somDoRed.pause();
+                audio.pause();
             }, 450);
         }
     } else if ((color == 2) || (color == 'yellow')) {
         somDoYellow.play();
-        if (somDoYellow.currentTime > 0.5) {
+        if (audio.currentTime > 0.5) {
             setTimeout(() => {
-                somDoYellow.pause();
+                audio.pause();
             }, 450);
         }
     } else if ((color == 3) || (color == 'blue')) {
         somDoBlue.play();
-        if (somDoBlue.currentTime > 0.5) {
+        if (audio.currentTime > 0.5) {
             setTimeout(() => {
-                somDoBlue.pause();
+                audio.pause();
             }, 450);
         }
     }
 }
+
 
 playGame();

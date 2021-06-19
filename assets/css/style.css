@@ -4,6 +4,7 @@ body    {
     margin: 0;
     background-color: #0b0111;
     font-family: 'Staatliches', cursive;
+    color: white;
 }
 
 .logoGenius {
@@ -25,8 +26,8 @@ body    {
     grid-template-areas: 'verde vermelho'
     'amarelo azul';
     grid-gap: 10px;
-    border: 1px solid #fff;
-    background-color: #fff;
+    border: 1px solid #0b0111;
+    background-color: #0b0111;
     border-radius: 100%;
     width: 500px;
     height: 500px;
@@ -34,26 +35,41 @@ body    {
 
 .green    {
     grid-area: verde;
-    background-color: #43B5A0;
+    background-color: #0b0111;
     border-top-left-radius: 100%;
+    background: radial-gradient(circle 1px at 105% 105%, transparent, transparent 120px, #43B5A0 100px);
+    background-size: 100% 100%;
+    background-position: 0 0, 100% 0;
+    background-repeat: no-repeat;
 }
 
 .red    {
     grid-area: vermelho;
-    background-color: #FA448C;
+    background-color: #0b0111;
     border-top-right-radius: 100%;
+    background: radial-gradient(circle 1px at -5% 105%, transparent, transparent 120px, #FA448C 100px);
+    background-size: 100% 100%;
+    background-position: 0 0, 100% 0;
+    background-repeat: no-repeat;
 }
 
 .yellow   {
     grid-area: amarelo;
-    background-color: #FEC859;
+    background-color: #0b0111;
     border-bottom-left-radius: 100%;
+    background: radial-gradient(circle 1px at 105% 0%, transparent, transparent 120px, #FEC859 100px);
+    background-size: 100% 100%;
+    background-position: 0 0, 100% 0;
+    background-repeat: no-repeat;
 }
 
 .blue   {
-    grid-area: azul;
-    background-color: #491D88;
+    background-color: #0b0111;
     border-bottom-right-radius: 100%;
+    background: radial-gradient(circle 1px at -5% 0%, transparent, transparent 120px, #491D88 100px);
+    background-size: 100% 100%;
+    background-position: 0 0, 100% 0;
+    background-repeat: no-repeat;
 }
 
 .selected {
